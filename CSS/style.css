@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+body {
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: rgb(8, 55, 89);
+}
+
+img{
+    padding: 100px;
+}
+
