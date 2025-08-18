@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+body {
+    font-size: "Quintessential", sans-serif;
+    background: #fcefee;
+    /* light romantic background */
+    overflow: hidden;
+    height: 100vh;
+    justify-content: center;
+}
+
+.balloon-field {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Base balloon */
+.balloon {
+    --x: 50vw;
+    /* horizontal position */
+    --d: 8s;
+    /* duration */
+    --delay: 0s;
+    /* delay */
+    --size: 70px;
+    /* size */
+    --color: #DC143C;
+    /* color */
+
+    position: absolute;
+    bottom: -20vh;
+    /* start below the screen */
+    width: var(--size);
+    height: calc(var(--size) * 1.3);
+    background: var(--color);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .15) inset;
+    animation: float var(--d) linear infinite;
+    animation-delay: var(--delay);
+    opacity: 0;
+}
+
+/* The string */
+.balloon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -60px;
+    width: 2px;
+    height: 60px;
+    background: #444;
+    transform: translateX(-50%);
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateX(var(--x)) translateY(110vh) scale(.9);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(var(--x)) translateY(-130vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Different positions, speeds, sizes, colors, delays */
+.balloon:nth-child(1) {
+    --x: 8vw;
+    --d: 9s;
+    --delay: -1s;
+    --size: 60px;
+    --color: #DC143C;
+}
+
+.balloon:nth-child(2) {
+    --x: 18vw;
+    --d: 11s;
+    --delay: -3s;
+    --size: 76px;
+    --color: #FFD700;
+}
+
+.balloon:nth-child(3) {
+    --x: 28vw;
+    --d: 10s;
+    --delay: -2s;
+    --size: 70px;
+    --color: #FFC0CB;
+}
+
+.balloon:nth-child(4) {
+    --x: 40vw;
+    --d: 12s;
+    --delay: -4s;
+    --size: 80px;
+    --color: #87CEEB;
+}
+
+.balloon:nth-child(5) {
+    --x: 55vw;
+    --d: 9.5s;
+    --delay: -2.5s;
+    --size: 66px;
+    --color: #50C878;
+}
+
+.balloon:nth-child(6) {
+    --x: 68vw;
+    --d: 13s;
+    --delay: -5s;
+    --size: 84px;
+    --color: #F7E7CE;
+}
+
+.balloon:nth-child(7) {
+    --x: 82vw;
+    --d: 10.5s;
+    --delay: -1.5s;
+    --size: 72px;
+    --color: #800080;
+}
+
+.balloon:nth-child(8) {
+    --x: 92vw;
+    --d: 12.5s;
+    --delay: -3.5s;
+    --size: 64px;
+    --color: #000080;
+}
+
+.birthday-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    /* space between cake and letter */
+    flex-wrap: wrap;
+    /* allows stacking on small screens */
+    padding: 20px;
+}
+
+.cake-container {
+    display: flex;
+    justify-content: center;
+    /* keeps it horizontally centered */
+    align-items: flex-start;
+    /* move content to top */
+    height: 100vh;
+    /* keeps full height */
+    padding-top: 50px;
+    /* add some space from very top */
+}
+
+
+.cake {
+    animation: dropBounce 10s ease forwards;
+    /* plays once for 6s */
+}
+
+.cake,
+.cake-text {
+    text-align: center;
+}
+
+.cake-text {
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: crimson;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    /* playful font */
+    animation: fadeIn 2s ease 4s forwards;
+    /* appear after bounce ends */
+    opacity: 0;
+    z-index: 12;
+    position: relative;
+}
+
+.cake img {
+    width: 25vw;
+    box-shadow: 0 8px 18px #FF8DA1;
+}
+
+@keyframes dropBounce {
+    0% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+
+    /* start above */
+    30% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* land */
+    50% {
+        transform: translateY(-40px);
+    }
+
+    /* bounce up */
+    70% {
+        transform: translateY(0);
+    }
+
+    /* settle down */
+    85% {
+        transform: translateY(-20px);
+    }
+
+    /* smaller bounce */
+    100% {
+        transform: translateY(0);
+    }
+
+    /* final position */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.love-letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: "Comic Sans MS", cursive;
+    z-index: 15;
+}
+
+/* Envelope body */
+.envelope {
+    position: relative;
+    width: 220px;
+    height: 140px;
+    background: #ffb6c1;
+    border: 3px solid #d87093;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Envelope flap */
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: #ff9eb5;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.8s ease;
+}
+
+.letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 1.4;
+    animation: slideLetter 1s ease forwards;
+    transition: top 0.8s ease;
+}
+
+@media (max-width: 768px) {
+    .cake-container {
+        flex-direction: column;
+    }
+}
+
+.envelope:hover .flap {
+    transform: rotateX(180deg);
+}
+
+/* Letter slides out when hover */
+.envelope:hover .letter {
+    top: 0;
+}

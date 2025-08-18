@@ -8,7 +8,24 @@ body {
   color: rgb(8, 55, 89);
 }
 
-img{
-    padding: 100px;
+a {
+  background-color: peru;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(26, 19, 2, 0.4); /* soft glow */
+  transition: all 0.3s ease;
+  display: block;
+  margin: 30px auto;
+  width: 25vw;
+  height: auto;
 }
+
+a:hover {
+  background-color: #debf98;
+  box-shadow: 0 6px 15px rgba(135, 209, 61, 0.6);
+}
+
 
